@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+ 
+ <div class="w-full h-full bg-zinc-900 text-white p-10" >
+  <a href="/" class="text-blue-500 mb-3 text-l">Goto Home</a>
+  <h1 class="text-3xl tracking-tighter mb-3"> Users</h1>
+  <div class="users flex flex-wrap gap-3">
+  <% if(users.length==0){%>
+    <div><h3 class="text-lg text-zinc-500">No users Found</h3></div>
+    <div><a href="/" class="text-lg text-blue-500">Create New Users ?</a></div>
+   <%} else{%>
+      <% users.forEach((user)=>{%>
+        <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
+          <div class="w-full h-52 rounded-lg bg-zinc-500"><%= user.image %></div>
+          <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+          <h5 class=" text-zinc-500"><%= user.email %></h5>
+          <div class="flex gap-3 mt-5">
+            <a class="text-zinc-300"  href="/update/<%=user._id%>">Edit User</a>
+            <a class="text-red-600" href="/delete/<%=user._id%>">Delete User</a>
+          </div>  </div>
+      <%})}%>
+
+  
+  
+ 
+ 
+ 
+
+  
+</div>
+ </div>
+</body>
+</html>  
